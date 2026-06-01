@@ -1,0 +1,262 @@
+/*
+  globals.css — Heritage Design System
+  Generated from: DESIGN.md (Google Stitch alpha spec)
+  Tailwind CSS v4 CSS-first configuration
+
+  FONT LOADING REQUIRED
+  ─────────────────────
+  Add to your HTML <head>:
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+*/
+
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   1. THEME TOKENS
+   All variables here auto-generate Tailwind utility classes.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@theme {
+
+  /* ── Colors ──────────────────────────────────────────────────── */
+  --color-primary:             #1A1C1E;
+  --color-secondary:           #6C7278;
+  --color-tertiary:            #B8422E;
+  --color-tertiary-container:  #F2D8D4;
+  --color-neutral:             #F7F5F2;
+  --color-surface:             #FFFFFF;
+  --color-border:              #E5E3DF;
+  /* synthesized: white text passes WCAG AA on #B8422E (4.82:1) ✓ */
+  --color-on-tertiary:         #FFFFFF;
+
+  /* ── Font Families ───────────────────────────────────────────── */
+  --font-sans:    "Public Sans", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+
+  /* ── Type Scale ──────────────────────────────────────────────── */
+  --text-h1:       3rem;      --text-h1--line-height:      1.1;
+  --text-h2:       2.25rem;   --text-h2--line-height:      1.15;
+  --text-h3:       1.75rem;   --text-h3--line-height:      1.25;
+  --text-body-lg:  1.125rem;  --text-body-lg--line-height: 1.6;
+  --text-body-md:  1rem;      --text-body-md--line-height: 1.6;
+  --text-body-sm:  0.875rem;  --text-body-sm--line-height: 1.5;
+  --text-label:    0.75rem;   --text-label--line-height:   1;
+  --text-caption:  0.75rem;   --text-caption--line-height: 1.4;
+
+  /* ── Font Weights ────────────────────────────────────────────── */
+  --font-weight-normal:   400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+
+  /* ── Letter Spacing ──────────────────────────────────────────── */
+  --tracking-headline:  -0.02em;
+  --tracking-subhead:   -0.01em;
+  --tracking-normal:     0em;
+  --tracking-label:      0.1em;
+
+  /* ── Spacing ─────────────────────────────────────────────────── */
+  --spacing-xs:  0.25rem;   /* 4px  */
+  --spacing-sm:  0.5rem;    /* 8px  */
+  --spacing-md:  1rem;      /* 16px */
+  --spacing-lg:  1.5rem;    /* 24px */
+  --spacing-xl:  2rem;      /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+
+  /* ── Border Radius ───────────────────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-full: 9999px;
+
+  /* ── Shadows (3-level elevation system) ─────────────────────── */
+  --shadow-none: 0 0 #0000;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.10), 0 1px 2px -1px rgb(0 0 0 / 0.10);
+  --shadow-modal:0 8px 24px 0 rgb(0 0 0 / 0.12), 0 2px 8px -2px rgb(0 0 0 / 0.08);
+
+  /* ── Container Max-Widths ────────────────────────────────────── */
+  --container-content: 75rem;  /* 1200px — fixed max-width grid */
+  --container-prose:   65ch;
+
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. BASE RESETS & ELEMENT DEFAULTS
+   Wires design tokens to HTML elements.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size:   var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+    color:       var(--color-primary);
+    background-color: var(--color-neutral);
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings */
+  h1 {
+    font-size:      var(--text-h1);
+    line-height:    var(--text-h1--line-height);
+    font-weight:    var(--font-weight-semibold);
+    letter-spacing: var(--tracking-headline);
+    font-family:    var(--font-sans);
+  }
+  h2 {
+    font-size:      var(--text-h2);
+    line-height:    var(--text-h2--line-height);
+    font-weight:    var(--font-weight-semibold);
+    letter-spacing: var(--tracking-subhead);
+    font-family:    var(--font-sans);
+  }
+  h3 {
+    font-size:      var(--text-h3);
+    line-height:    var(--text-h3--line-height);
+    font-weight:    var(--font-weight-semibold);
+    font-family:    var(--font-sans);
+  }
+  h4, h5, h6 {
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-sans);
+  }
+
+  /* Body text */
+  p, li {
+    font-size:   var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+    color:       var(--color-primary);
+  }
+
+  /* Links — Boston Clay exclusively */
+  a {
+    color: var(--color-tertiary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 150ms ease;
+  }
+  a:hover {
+    color: color-mix(in oklab, var(--color-tertiary) 80%, black);
+  }
+
+  /* Metadata, labels, captions */
+  small, figcaption {
+    font-size:   var(--text-caption);
+    line-height: var(--text-caption--line-height);
+    color:       var(--color-secondary);
+  }
+
+  /* Focus ring — uses accent color */
+  :focus-visible {
+    outline: 2px solid var(--color-tertiary);
+    outline-offset: 2px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. COMPONENT TOKENS
+   Semantic classes from the DESIGN.md components: section.
+   Use var(--token) throughout — never hardcoded hex.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@layer components {
+
+  /* ── Primary Button ──────────────────────────────────────────── */
+  /* bg: #B8422E | text: #FFFFFF | contrast: 4.82:1 — WCAG AA ✓ */
+  .btn-primary {
+    display:          inline-flex;
+    align-items:      center;
+    justify-content:  center;
+    gap:              0.5rem;
+    background-color: var(--color-tertiary);
+    color:            var(--color-on-tertiary);
+    border-radius:    var(--radius-sm);
+    padding-block:    0.75rem;
+    padding-inline:   1.25rem;
+    font-family:      var(--font-display);
+    font-size:        var(--text-label);
+    font-weight:      var(--font-weight-medium);
+    letter-spacing:   var(--tracking-label);
+    text-transform:   uppercase;
+    text-decoration:  none;
+    border:           none;
+    cursor:           pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-tertiary-container);
+    color:            var(--color-primary);
+  }
+  .btn-primary:focus-visible {
+    outline:        2px solid var(--color-tertiary);
+    outline-offset: 2px;
+  }
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor:  not-allowed;
+  }
+
+  /* ── Secondary Button ────────────────────────────────────────── */
+  .btn-secondary {
+    display:          inline-flex;
+    align-items:      center;
+    justify-content:  center;
+    gap:              0.5rem;
+    background-color: transparent;
+    color:            var(--color-primary);
+    border:           1px solid var(--color-border);
+    border-radius:    var(--radius-sm);
+    padding-block:    0.75rem;
+    padding-inline:   1.25rem;
+    font-family:      var(--font-display);
+    font-size:        var(--text-label);
+    font-weight:      var(--font-weight-medium);
+    letter-spacing:   var(--tracking-label);
+    text-transform:   uppercase;
+    text-decoration:  none;
+    cursor:           pointer;
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+  .btn-secondary:hover {
+    border-color:     var(--color-secondary);
+    background-color: var(--color-neutral);
+  }
+  .btn-secondary:focus-visible {
+    outline:        2px solid var(--color-tertiary);
+    outline-offset: 2px;
+  }
+
+  /* ── Card ────────────────────────────────────────────────────── */
+  .card {
+    background-color: var(--color-surface);
+    border-radius:    var(--radius-md);
+    padding:          var(--spacing-lg);
+    box-shadow:       var(--shadow-card);
+  }
+
+  /* ── Label Caps (metadata / category tags) ───────────────────── */
+  .label-caps {
+    font-family:    var(--font-display);
+    font-size:      var(--text-label);
+    line-height:    var(--text-label--line-height);
+    font-weight:    var(--font-weight-medium);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color:          var(--color-secondary);
+  }
+
+  /* ── Content Container ───────────────────────────────────────── */
+  .container-content {
+    width:     100%;
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: var(--spacing-md);
+  }
+}

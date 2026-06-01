@@ -1,0 +1,26 @@
+{
+  "skill_name": "penpot-loop",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Read my .penpot/next-prompt.md and build the component from the Penpot design, then prepare the next iteration.",
+      "expected_output": "Skill parses the baton's YAML frontmatter (component, shapeId, page) and uses penpotUtils inside execute_code to extract design data; the component file is generated in site/public/components/, assets are saved under .penpot/assets/, and .penpot/next-prompt.md is updated with the next component's UUID and prompt body before completion.",
+      "files": [],
+      "expectations": []
+    },
+    {
+      "id": 2,
+      "prompt": "Extract the design system from my Penpot file using the MCP tools and save it to .penpot/DESIGN.md.",
+      "expected_output": "Skill calls penpotUtils.shapeStructure and penpotUtils.tokenOverview via execute_code to collect colors, typography, spacing, effects, and reusable components, then writes the result to .penpot/DESIGN.md in the expected token format so subsequent iterations can copy the design system block into their batons.",
+      "files": [],
+      "expectations": []
+    },
+    {
+      "id": 3,
+      "prompt": "Convert the hero-section board in my Penpot file (Landing Page) to HTML/CSS, save assets, verify with Playwriter, and update the baton.",
+      "expected_output": "Skill locates the hero-section board by its Penpot UUID on the Landing Page, exports image assets with export_shape (never import_image), writes the HTML/CSS component to site/public/components/hero-section.html, verifies the rendered page with a Playwriter screenshot, and updates .penpot/next-prompt.md plus .penpot/metadata.json with the completed status and the next component's UUID.",
+      "files": [],
+      "expectations": []
+    }
+  ]
+}
