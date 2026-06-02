@@ -1,6 +1,6 @@
-# Zed Agent Skills
+# Design to Code Agent Skills
 
-Collection of modular agent skills for the Zed editor, focused on design-to-code workflows.
+Collection of modular agent skills focused on design-to-code workflows.
 
 ## Skills
 
